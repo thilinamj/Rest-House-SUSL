@@ -1,0 +1,52 @@
+
+
+.logo,.name{
+	display: inline-block;
+	float: left;
+}
+.name{
+	margin-top: 5px;
+	font-size: 15px;
+	margin-left: 10px;
+
+}
+
+.logo img{
+	width: 50px;
+	padding-bottom: 10px;
+
+}
+
+.navbar-header{
+	padding-bottom: 10px;
+}
+.header-nav nav .container{
+	padding-top: 20px !important;
+	padding-bottom: 30px !important;
+	
+}
+@media screen and (max-width: 1024px) {
+.container{
+			width:100% !important;
+		}
+}
+
+
+.container{
+	height: 30px;
+}
+.navbar-inverse {
+	height: 80px;
+}
+.glyphicon glyphicon-user{
+	margin-top: 40px !important;
+}
+
+.nav_Sign{
+	margin-top: 10px;
+}
+.nav_links{
+	margin-top: 10px;
+	margin-left: 
+}
+
