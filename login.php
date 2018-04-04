@@ -83,7 +83,7 @@ if(mysqli_num_rows($result_set)==1){
 #ab1:hover{cursor:pointer;}
 </style>  
 
-<body style="background:url('images/loginbag.jpg') no-repeat; background-size:cover;">
+<body style="background:url('') no-repeat; background-size:cover;">
 <div class="container" style="width:400px;margin-top:150px">
 
 <div class="card ">
@@ -91,7 +91,7 @@ if(mysqli_num_rows($result_set)==1){
 
 <div class="card-body">
 	<?php
-	if(isset($errors)&& !empty($errors)){
+	if(isset($errors) && !empty($errors)){
 		echo '<div class="error">Invalid User name Or Password</div>';
 	}
 
