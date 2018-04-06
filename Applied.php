@@ -1,3 +1,31 @@
+<?php require_once('connection.php')  ;?>
+
+<?php
+if(isset($_POST['appsubmit'])){
+
+$name=$_POST['name'];
+$email=$_POST['email'];
+$phone=$_POST['phone'];
+
+
+$query="INSERT INTO applied(name,email,phone,adate,ddate)values('$name','$email','$phone')";
+$result=mysqli_query($connection,$query);
+if($result)
+
+
+{
+    
+  
+echo  "<script>alert('Patient Registered!')</script>";
+    //echo "<script>window.open('Applied.php','_self')</script>";
+   
+
+}
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -96,8 +124,8 @@
   
 
   <div class="row">
-        <div class="container">
-    <div class="col-lg-6 col-md-6 col-sm-6 animate-box">
+    <div class="container">
+    <div class="col-lg-6 col-md-6 col-sm-6 ">
         <a class="fh5co-card" href="#">
             <img src="images/4.jpg" alt="Agri" class="img-responsive" height="600px">
             <div class="fh5co-card-body">
@@ -107,28 +135,32 @@
         </a>
     </div>
 
-    <div class="col-lg-6 col-md-6 col-sm-6 animate-box">
+    <div class="col-lg-6 col-md-6 col-sm-6 ">
   
                <div class="fh5co-card-body">
-                    <h3>Faculty of Agri Science</h3>
+                    <h3>Faculty of Applied Science</h3>
                     <p>The Sabaragamuwa University of Sri Lanka was established under the universitites Act Number 16 of 1978 on 7th November 1995 and ceremonially inaugurated on 2nd February 1996. Assigned to the University are the faculties of Agricultural Sciences , Applied Sciences, Geomatics, Management studies and Social Scences and Languages set up at Belihuloya in Rathnapura District of the Sabaragamuwa Province.</p>
                 </div>
-                    <form action="applied.php" action="post">
+
+
+
+
+                    <form action="Applied.php" method="post">
 
                         <div class="form-group">
                                 <label for="Name">Name:</label>
-                                <input type="Name" class="form-control" id="Name" placeholder="Enter Name" name="name" required>
+                                <input type="Name" class="form-control"  placeholder="Enter Name" name="name" required>
                               </div>
 
                         <div class="form-group">
                           <label for="email">Email:</label>
-                          <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required>
+                          <input type="email" class="form-control"  placeholder="Enter email" name="email" required>
                         </div>
                         
 
                         <div class="form-group">
                                 <label for="phone">Phone</label>
-                                <input type="phone" class="form-control" id="phone" placeholder="phone" name="phone" required>
+                                <input type="phone" class="form-control"  placeholder="phone" name="phone" required>
                               </div>
                               
 
@@ -185,14 +217,17 @@
 
                         <div class="row">
                             <div class="form-group">
-                                    <button type="appsubmit" class="btn btn-danger">Submit</button>
+                                  <button type="submit" name="appsubmit" class="btn btn-danger">Submit</button>
                             </div>
                         </div>
                       </form>
-                </div>
-            </a>
+
+
+
+               
+           
         </div>
-    </div>
+    
 
 
    

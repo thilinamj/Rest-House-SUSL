@@ -79,7 +79,7 @@
 
     <div class="nav_links">
     <ul class="nav navbar-nav">
-      <li class="active"><a href="index.php">Home</a></li>
+      <li class="active"><a href="">wel come Admin</a></li>
       
     </ul>
 
@@ -87,7 +87,7 @@
 
     <div class="nav_Sign">
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span></a></li>
       <li><a href="http://localhost/SUSL%20Resevation/"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
     </ul>
   </div>
