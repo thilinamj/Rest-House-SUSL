@@ -1,28 +1,27 @@
-<?php require_once('connection.php')  ;?>
+<?php require_once('connection.php')  ;
 
-<?php
+
 if(isset($_POST['appsubmit'])){
-
 $name=$_POST['name'];
 $email=$_POST['email'];
 $phone=$_POST['phone'];
 
 
-$query="INSERT INTO applied(name,email,phone,adate,ddate)values('$name','$email','$phone')";
+$query="INSERT INTO applied(name,email,phone)values('$name','$email','$phone')";
 $result=mysqli_query($connection,$query);
-if($result)
+if($result){
 
 
-{
+
     
   
-echo  "<script>alert('Patient Registered!')</script>";
+echo  "<script>alert('Registered Successful!')</script>";
     //echo "<script>window.open('Applied.php','_self')</script>";
    
 
 }
 }
-
+  
 ?>
 
 
