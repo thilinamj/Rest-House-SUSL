@@ -1,4 +1,5 @@
 
+<?php session_start(); ?>
 <?php require_once('connection.php')  ;?>
 
 <?php
@@ -12,17 +13,24 @@ $password=$_POST['password'];
 
 $query="select * from admin where username='$username' and password='$password'";
 $result=mysqli_query($connection,$query);
+
+if($result){
 if(mysqli_num_rows($result)==1)
 
 {
+
+$admin = mysqli_fetch_assoc($result);
+$_SESSION['userid'] = $admin['id'] ;  
 header("location:dashboard.php");
 }
+
+
 else
 {
  
 echo "<script>alert('Error Login')</script>";
 echo "<script>window.open('login.php','_self')</script>";
-
+}
 }
 }
 ?>

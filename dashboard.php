@@ -1,3 +1,63 @@
+
+<?php session_start(); ?>
+<?php require_once('connection.php')  ;?>
+<?php 
+
+if (!isset($_SESSION['userid'])){
+	header('location: login.php');
+
+}
+
+$rlist='';
+$query="select * from applied ORDER BY id";
+$result=mysqli_query($connection,$query);
+
+if($result){
+	while($applied = mysqli_fetch_assoc($result)){
+       $rlist .= "<tr>";
+       $rlist .= "<td>{$applied['id']}</td>";
+       $rlist .= "<td>{$applied['name']}</td>";
+       $rlist .= "<td>{$applied['email']}</td>";
+       $rlist .= "<td>{$applied['phone']}</td>";
+       $rlist .= "<td ><a href=\"delete.php?listid={$applied['id']}\">Delete</td>";
+       $rlist .= "</tr>";
+
+
+	}
+
+}else{
+	echo "database query faild";
+}
+
+/*function get_request_list(){
+    global $connection;
+    $query="select * from applied";
+    $result=mysqli_query($connection,$query);
+    while ($row=mysqli_fetch_array($result)){
+
+       
+
+       $id=$row['id'];
+       $name=$row['name'];
+       $email=$row['email'];
+       $phone=$row['phone'];
+     
+       echo"<tr>
+       <td>$id</td>
+      <td>$name</td>
+      <td>$email</td> 
+      <td>$phone</td>
+      <td><a href="edit.php">edit</a></td>
+      
+      
+      </tr>";
+
+    }
+}
+*/
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,57 +68,14 @@
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-  <link rel="stylesheet" href="css/datepicker.css" type="text/css">
-    <script type="text/javascript" src="js/bootstrap-datepicker.js"></script>
   
-     
 
-
-  
   <link rel="stylesheet" href="css/modify.css">
   <link rel="stylesheet" href="css/magnific-popup.css">
   <link rel="stylesheet" href="css/animate.css">
 
 
-<link rel="stylesheet" href="css/themify-icons.css">
-  <!-- Bootstrap -->
-  <link rel="stylesheet" href="css/bootstrap.css">
-  <!-- Owl Carousel -->
-  <link rel="stylesheet" href="css/owl.carousel.min.css">
-  <link rel="stylesheet" href="css/owl.theme.default.min.css">
-  <!-- Magnific Popup -->
-  <link rel="stylesheet" href="css/magnific-popup.css">
-  <!-- Superfish -->
-  <link rel="stylesheet" href="css/superfish.css">
-  <!-- Easy Responsive Tabs -->
-  <link rel="stylesheet" href="css/easy-responsive-tabs.css">
-  <!-- Animate.css -->
-  <link rel="stylesheet" href="css/animate.css">
-  <!-- Theme Style -->
-  
 
-
-  
-    <!-- jQuery Easing -->
-    <script src="js/jquery.easing.1.3.js"></script>
-    <!-- Bootstrap -->
-    <script src="js/bootstrap.js"></script>
-    <!-- Owl carousel -->
-    <script src="js/owl.carousel.min.js"></script>
-    <!-- Magnific Popup -->
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <!-- Superfish -->
-    <script src="js/hoverIntent.js"></script>
-    <script src="js/superfish.js"></script>
-    <!-- Easy Responsive Tabs -->
-    <script src="js/easyResponsiveTabs.js"></script>
-    <!-- FastClick for Mobile/Tablets -->
-    <script src="js/fastclick.js"></script>
-    <!-- Waypoints -->
-    <script src="js/jquery.waypoints.min.js"></script>
-    <!-- Main JS -->
-    <script src="js/main.js"></script>
- 
 
     
 
@@ -66,6 +83,7 @@
 <body>
 
 <nav class="navbar navbar-inverse header-nav">
+  
   <div class="container">
     <div class="navbar-header">
       <a class="navbar-brand" href="#">
@@ -88,13 +106,36 @@
     <div class="nav_Sign">
     <ul class="nav navbar-nav navbar-right">
       <li><a href="#"><span class="glyphicon glyphicon-user"></span></a></li>
-      <li><a href="http://localhost/SUSL%20Resevation/"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+      <li><a href="login.php><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+
     </ul>
   </div>
   </div>
 </nav>
-  
 
 
+
+  <div class="jumbotron" style="background:url('images/bag.jpg')no-repeat;background-size:cover;height:300px;"></div>
+
+<div class="card mt-5">
+<div class="card-header"><h2>Required Details</h2></div>
+<div class="card-body">
+<table class="table table-bordered">
+	<tr>
+		<th>id</th>
+		<th>name</th>
+		<th>email</th>
+		<th>phone </th>
+		<th>Action</th>
+	</tr>
+
+
+
+
+    <?php echo $rlist;?>
+    
+
+
+</table>
 </body>
 </html>
