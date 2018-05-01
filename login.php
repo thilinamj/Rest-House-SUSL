@@ -34,17 +34,64 @@ echo "<script>window.open('login.php','_self')</script>";
 }
 }
 ?>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Login Page</title>
-   	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-   	<link rel="stylesheet" type="text/css" href="css/main.css">
-</head>
-<style>
-#ab1:hover{cursor:pointer;}
-</style>  
+  <title>users</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<body style="background:url('') no-repeat; background-size:cover;">
+  
+
+  <link rel="stylesheet" href="css/modify.css">
+  <link rel="stylesheet" href="css/magnific-popup.css">
+  <link rel="stylesheet" href="css/animate.css">
+
+
+
+
+    
+
+</head>
+<body>
+
+<nav class="navbar navbar-inverse header-nav">
+  
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">
+        <div class="logo"><img src="images/logo.png" alt="logo"></div>
+        <div class="name">Sabaragamuwa University <br>of Sri Lnaka</div>
+
+
+
+      </a>
+    </div>
+
+    <div class="nav_links">
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="http://localhost/SUSL%20Resevation/">Home</a></li>
+      
+    </ul>
+
+    
+
+    <div class="nav_Sign">
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span></a></li>
+  
+
+    </ul>
+  </div>
+  </div>
+</nav>
+
+
+
+
 <div class="container" style="width:400px;margin-top:150px">
 
 <div class="card ">
