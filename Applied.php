@@ -5,9 +5,11 @@ if(isset($_POST['appsubmit'])){
 $name=$_POST['name'];
 $email=$_POST['email'];
 $phone=$_POST['phone'];
+$adate= date('dd-mm-yyyy',strtotime($_POST['adate']));
+$ddate=date('dd-mm-yyyy',strtotime($_POST['ddate']));
 
 
-$query="INSERT INTO applied(name,email,phone)values('$name','$email','$phone')";
+$query="INSERT INTO applied(name,email,phone,adate,ddate)values('$name','$email','$phone','$adate','$ddate')";
 $result=mysqli_query($connection,$query);
 if($result){
 
@@ -169,11 +171,11 @@ echo  "<script>alert('Registered Successful!')</script>";
                               <div class="row">
 
                               <div class="form-group">
-                                    <div class="col-lg-4 col-md-4 col-sm-4>
+                              <div class="col-lg-4 col-md-4 col-sm-4>
                                   
-                             <label for="Arrive">Arrival</label>
+                             <label>Arrival</label>
                               <div class="input-append date" id="dp3" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
-                                <input class=" form-control datepicker" type="text" value="12-02-2012">
+                                <input class=" form-control datepicker" type="text" value="12-02-2012" name="adate">
                                 <span class="add-on"><i class="icon-th"></i></span>
                               </div>
                               <script type="text/javascript">
@@ -185,9 +187,9 @@ echo  "<script>alert('Registered Successful!')</script>";
                             
                              
                               <div class="col-lg-4 col-md-4 col-sm-4>
-                                    <label for="Deaprting">Dearting</label>
+                                    <label>Dearting</label>
                                      <div class="input-append date" id="dp3" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
-                                       <input class=" form-control datepicker" type="text" value="12-02-2012">
+                                       <input class=" form-control datepicker" type="text" value="12-02-2012" name="ddate">
                                        <span class="add-on"><i class="icon-th"></i></span>
                                      </div>
                                      <script type="text/javascript">

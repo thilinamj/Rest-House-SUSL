@@ -1,62 +1,24 @@
+<?php
+session_start() ?>
 
-<?php session_start(); ?>
 <?php require_once('connection.php')  ;?>
-<?php 
-
+<?php
 if (!isset($_SESSION['userid'])){
-	header('location: login.php');
-
+  header('location:login.php');
 }
 
-$rlist='';
+?>
+
+<?php
+
 $query="select * from applied ORDER BY id";
 $result=mysqli_query($connection,$query);
 
-if($result){
-	while($applied = mysqli_fetch_assoc($result)){
-       $rlist .= "<tr>";
-       $rlist .= "<td>{$applied['id']}</td>";
-       $rlist .= "<td>{$applied['name']}</td>";
-       $rlist .= "<td>{$applied['email']}</td>";
-       $rlist .= "<td>{$applied['phone']}</td>";
-       $rlist .= "<td ><a href=\"delete.php?listid={$applied['id']}\">Delete</td>";
-       $rlist .= "</tr>";
 
-
-	}
-
-}else{
-	echo "database query faild";
-}
-
-/*function get_request_list(){
-    global $connection;
-    $query="select * from applied";
-    $result=mysqli_query($connection,$query);
-    while ($row=mysqli_fetch_array($result)){
-
-       
-
-       $id=$row['id'];
-       $name=$row['name'];
-       $email=$row['email'];
-       $phone=$row['phone'];
-     
-       echo"<tr>
-       <td>$id</td>
-      <td>$name</td>
-      <td>$email</td> 
-      <td>$phone</td>
-      <td><a href="edit.php">edit</a></td>
-      
-      
-      </tr>";
-
-    }
-}
-*/
 
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -65,7 +27,7 @@ if($result){
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
   
@@ -105,8 +67,8 @@ if($result){
 
     <div class="nav_Sign">
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><span class="glyphicon glyphicon-user"></span></a></li>
-      <li><a href="login.php><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+      
+      <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
 
     </ul>
   </div>
@@ -121,21 +83,37 @@ if($result){
 <div class="card-header"><h2>Required Details</h2></div>
 <div class="card-body">
 <table class="table table-bordered">
-	<tr>
-		<th>id</th>
-		<th>name</th>
-		<th>email</th>
-		<th>phone </th>
-		<th>Action</th>
-	</tr>
-
-
-
-
-    <?php echo $rlist;?>
-    
-
-
+     <thead>
+      <tr>
+       <th>ID</th>
+       <th> Name</th>
+       <th> email</th>
+       <th>phone</th>
+       <th>Action</th>
+      </tr>
+     </thead>
+     <tbody>
+     <?php while ($row = mysqli_fetch_array($result)) { ?>
+    <tr>
+      <td><?php echo $row['id']; ?></td>
+      <td><?php echo $row['name']; ?></td>
+        <td><?php echo $row['email']; ?></td>
+         <td><?php echo $row['phone']; ?></td>
+      <td>
+        <a href="index.php?edit=<?php echo $row['id']; ?>" class="edit_btn" >Edit</a>
+      </td>
+      <td>
+        <a href="delete.php?del=<?php echo $row['id']; ?>" class="del_btn btn-danger">Delete</a>
+      </td>
+    </tr>
+  <?php } ?>
 </table>
-</body>
-</html>
+     </tbody>
+    </table>
+   </div>  
+  </div>  
+ </body>  
+</html>  
+<script> 
+
+
