@@ -5,9 +5,8 @@ if(isset($_POST['appsubmit'])){
 $name=$_POST['name'];
 $email=$_POST['email'];
 $phone=$_POST['phone'];
-$adate= date('dd-mm-yyyy',strtotime($_POST['adate']));
-$ddate=date('dd-mm-yyyy',strtotime($_POST['ddate']));
-
+$adate= date('mm/dd/yyyy',strtotime($_POST['adate']));
+$ddate=date('mm/dd/yyyy',strtotime($_POST['ddate']));
 
 $query="INSERT INTO applied(name,email,phone,adate,ddate)values('$name','$email','$phone','$adate','$ddate')";
 $result=mysqli_query($connection,$query);
@@ -49,48 +48,6 @@ echo  "<script>alert('Registered Successful!')</script>";
   <link rel="stylesheet" href="css/animate.css">
 
 
-<link rel="stylesheet" href="css/themify-icons.css">
-  <!-- Bootstrap -->
-  <link rel="stylesheet" href="css/bootstrap.css">
-  <!-- Owl Carousel -->
-  <link rel="stylesheet" href="css/owl.carousel.min.css">
-  <link rel="stylesheet" href="css/owl.theme.default.min.css">
-  <!-- Magnific Popup -->
-  <link rel="stylesheet" href="css/magnific-popup.css">
-  <!-- Superfish -->
-  <link rel="stylesheet" href="css/superfish.css">
-  <!-- Easy Responsive Tabs -->
-  <link rel="stylesheet" href="css/easy-responsive-tabs.css">
-  <!-- Animate.css -->
-  <link rel="stylesheet" href="css/animate.css">
-  <!-- Theme Style -->
-  
-
-
-  
-    <!-- jQuery Easing -->
-    <script src="js/jquery.easing.1.3.js"></script>
-    <!-- Bootstrap -->
-    <script src="js/bootstrap.js"></script>
-    <!-- Owl carousel -->
-    <script src="js/owl.carousel.min.js"></script>
-    <!-- Magnific Popup -->
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <!-- Superfish -->
-    <script src="js/hoverIntent.js"></script>
-    <script src="js/superfish.js"></script>
-    <!-- Easy Responsive Tabs -->
-    <script src="js/easyResponsiveTabs.js"></script>
-    <!-- FastClick for Mobile/Tablets -->
-    <script src="js/fastclick.js"></script>
-    <!-- Waypoints -->
-    <script src="js/jquery.waypoints.min.js"></script>
-    <!-- Main JS -->
-    <script src="js/main.js"></script>
- 
-
-    
-
 </head>
 <body>
 
@@ -122,113 +79,111 @@ echo  "<script>alert('Registered Successful!')</script>";
   </div>
   </div>
 </nav>
-  
 
-  <div class="row">
-    <div class="container">
-    <div class="col-lg-6 col-md-6 col-sm-6 ">
-        <a class="fh5co-card" href="#">
-            <img src="images/4.jpg" alt="Agri" class="img-responsive" height="600px">
-            <div class="fh5co-card-body">
-               
-                <p></p>
-            </div>
-        </a>
+  
+                            
+
+                            
+   <div class="container">
+  <div class="alert alert-success" role="alert">
+  <h4 class="alert-heading">Faculty of Applied Sciences</h4>
+  <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+  <hr>
+  <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+</div>
+
+                    
+
+                    
+
+<form action="Applied.php" method="post">
+  <div class="form-group row">
+    <label for="Name" class="col-sm-2 col-form-label">Name</label>
+    <div class="col-sm-10">
+      <input type="Name" class="form-control"  placeholder="Enter Name" name="name" required>
     </div>
+  </div>
 
-    <div class="col-lg-6 col-md-6 col-sm-6 ">
-  
-               <div class="fh5co-card-body">
-                    <h3>Faculty of Applied Science</h3>
-                    <p>The Sabaragamuwa University of Sri Lanka was established under the universitites Act Number 16 of 1978 on 7th November 1995 and ceremonially inaugurated on 2nd February 1996. Assigned to the University are the faculties of Agricultural Sciences , Applied Sciences, Geomatics, Management studies and Social Scences and Languages set up at Belihuloya in Rathnapura District of the Sabaragamuwa Province.</p>
-                </div>
-
-
-
-
-                    <form action="Applied.php" method="post">
-
-                        <div class="form-group">
-                                <label for="Name">Name:</label>
-                                <input type="Name" class="form-control"  placeholder="Enter Name" name="name" required>
-                              </div>
-
-                        <div class="form-group">
-                          <label for="email">Email:</label>
-                          <input type="email" class="form-control"  placeholder="Enter email" name="email" required>
-                        </div>
-                        
-
-                        <div class="form-group">
-                                <label for="phone">Phone</label>
-                                <input type="phone" class="form-control"  placeholder="phone" name="phone" required>
-                              </div>
-                              
+  <div class="form-group row">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+    <div class="col-sm-10">
+     <input type="email" class="form-control"  placeholder="Enter email" name="email" required>
+    </div>
+  </div>
 
 
 
-                              
-                              <div class="row">
-
-                              <div class="form-group">
-                              <div class="col-lg-4 col-md-4 col-sm-4>
-                                  
-                             <label>Arrival</label>
-                              <div class="input-append date" id="dp3" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
-                                <input class=" form-control datepicker" type="text" value="12-02-2012" name="adate">
-                                <span class="add-on"><i class="icon-th"></i></span>
-                              </div>
-                              <script type="text/javascript">
-                                  $('.datepicker').datepicker()
-                              </script>
-                              </div>
-                        
-
-                            
-                             
-                              <div class="col-lg-4 col-md-4 col-sm-4>
-                                    <label>Dearting</label>
-                                     <div class="input-append date" id="dp3" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
-                                       <input class=" form-control datepicker" type="text" value="12-02-2012" name="ddate">
-                                       <span class="add-on"><i class="icon-th"></i></span>
-                                     </div>
-                                     <script type="text/javascript">
-                                         $('.datepicker').datepicker()
-                                     </script>
-                                     </div>
-                                    </div>
-                              
-                                </div>
-                                
-                                <div class="row">
-                                    <div class="form-group">
-                                        <div class="dropdown">
-                                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select Your Package
-                                            <span class="caret"></span></button>
-                                            <ul class="dropdown-menu">
-                                              <li><a href="#">HTML</a></li>
-                                              <li><a href="#">CSS</a></li>
-                                              <li><a href="#">JavaScript</a></li>
-                                            </ul>
-                                          </div>
-                                    </div>
-                                </div>
-                            
-
-
-                        <div class="row">
-                            <div class="form-group">
-                                  <button type="submit" name="appsubmit" class="btn btn-danger">Submit</button>
-                            </div>
-                        </div>
-                      </form>
+  <div class="form-group row">
+    <label for="inputPassword3" class="col-sm-2 col-form-label">Phone</label>
+    <div class="col-sm-10">
+      <input type="phone" class="form-control"  placeholder="phone" name="phone" required>
+    </div>
+  </div>
 
 
 
-               
-           
+  <fieldset class="form-group">
+    <div class="row">
+      <legend class="col-form-label col-sm-2 pt-0">Select Your Package</legend>
+      <div class="col-sm-10">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+          <label class="form-check-label" for="gridRadios1">
+            One Day
+          </label>
         </div>
-    
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+          <label class="form-check-label" for="gridRadios2">
+            Two Days
+          </label>
+        </div>
+        <div class="form-check disabled">
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" disabled>
+          <label class="form-check-label" for="gridRadios3">
+           Three Days
+          </label>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+ 
+   <div class="form-row">
+    <div class="form-group col-md-4">
+<label for="date">Arrival Date</label>
+<input class="datepicker" data-date-format="mm/dd/yyyy" placeholder="Arrival Date" name="adate" > 
+</div>
+
+  <div class="form-group col-md-4">
+<label for="date">Departure Date</label>
+<input class="datepicker" data-date-format="mm/dd/yyyy"  placeholder="Departure Date" name="ddate" >
+</div>
+
+
+  <div class="form-group col-md-4"></div>
+  </div>
+
+
+
+
+  <div class="form-group row">
+    <div class="col-sm-10">
+         <button type="submit" name="appsubmit" class="btn btn-primary">Submit</button>
+    </div>
+  </div>
+</form>
+
+
+
+
+
+
+
+
+    <div>
+
+
+
 
 
    
@@ -241,3 +196,8 @@ echo  "<script>alert('Registered Successful!')</script>";
 
 </body>
 </html>
+
+<script type="text/javascript">$('.datepicker').datepicker({
+    startDate: '-3d'
+});
+</script>
