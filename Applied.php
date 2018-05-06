@@ -1,29 +1,33 @@
+
+
+
 <?php require_once('connection.php')  ;
-
-
 if(isset($_POST['appsubmit'])){
 $name=$_POST['name'];
 $email=$_POST['email'];
 $phone=$_POST['phone'];
-$adate= date('mm/dd/yyyy',strtotime($_POST['adate']));
-$ddate=date('mm/dd/yyyy',strtotime($_POST['ddate']));
+$Package=$_POST['Package'];
+$adate=$_POST['adate'];
+$ddate=$_POST['ddate'];
 
-$query="INSERT INTO applied(name,email,phone,adate,ddate)values('$name','$email','$phone','$adate','$ddate')";
+$query="INSERT INTO applied(name,email,phone,Package,adate,ddate)values('$name','$email','$phone','$Package','$adate','$ddate')";
 $result=mysqli_query($connection,$query);
 if($result){
-
-
-
     
   
 echo  "<script>alert('Registered Successful!')</script>";
     //echo "<script>window.open('Applied.php','_self')</script>";
    
-
 }
 }
   
 ?>
+
+
+
+
+
+
 
 
 <!DOCTYPE html>
@@ -87,7 +91,7 @@ echo  "<script>alert('Registered Successful!')</script>";
    <div class="container">
   <div class="alert alert-success" role="alert">
   <h4 class="alert-heading">Faculty of Applied Sciences</h4>
-  <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+  <p>Wel come!,If you are a lecturer in sabaragamuwa University,Staff member,or student ,You can get this services.</p>
   <hr>
   <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
 </div>
@@ -127,21 +131,21 @@ echo  "<script>alert('Registered Successful!')</script>";
       <legend class="col-form-label col-sm-2 pt-0">Select Your Package</legend>
       <div class="col-sm-10">
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+          <input class="form-check-input" type="radio" name="Package" id="gridRadios1" value="Singale" checked>
           <label class="form-check-label" for="gridRadios1">
-            One Day
+           Singale
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+          <input class="form-check-input" type="radio" name="Package" id="gridRadios2" value="Double">
           <label class="form-check-label" for="gridRadios2">
-            Two Days
+            Double
           </label>
         </div>
         <div class="form-check disabled">
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" disabled>
+          <input class="form-check-input" type="radio" name="Package" id="gridRadios3" value="Tripple" >
           <label class="form-check-label" for="gridRadios3">
-           Three Days
+           Tripple
           </label>
         </div>
       </div>
@@ -180,6 +184,10 @@ echo  "<script>alert('Registered Successful!')</script>";
 
 
 
+
+
+
+
     <div>
 
 
@@ -201,3 +209,5 @@ echo  "<script>alert('Registered Successful!')</script>";
     startDate: '-3d'
 });
 </script>
+
+

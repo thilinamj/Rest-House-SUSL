@@ -40,23 +40,22 @@ echo "<script>window.open('login.php','_self')</script>";
   <title>users</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/main.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+<link rel="stylesheet" href="css/modify.css">
+  <link rel="stylesheet" href="css/login.css">
   
-
-  <link rel="stylesheet" href="css/modify.css">
-  <link rel="stylesheet" href="css/magnific-popup.css">
-  <link rel="stylesheet" href="css/animate.css">
-
 
 
 
     
 
 </head>
-<body>
+
 
 <nav class="navbar navbar-inverse header-nav">
   
@@ -90,36 +89,39 @@ echo "<script>window.open('login.php','_self')</script>";
 </nav>
 
 
-
-
-<div class="container" style="width:400px;margin-top:150px">
-
+<body>
 <div class="card ">
-	<h2>Login</h2>
-
+	
 <div class="card-body">
 	
 
-	
-
-    <form class="form-group" action="login.php" method="post">
-
-    <label>User name:</label><br>
-    <input type="text" name="username" class="form-control" placeholder="Email Address"><br>
-    <label>Password:</label><br>
-    <input type="password" name="password" class="form-control" placeholder="enter password"><br>
-    <input type="submit" name="submit" id="ab1" class="btn btn-primary"> 
+	<div class="login-form">
+    <h2>Login</h2>
+    <form action="login.php" method="post">
+        <div class="text-center">
+            <img src="images/user.png" class="img-circle avatar" alt="Avatar">
+        </div>        
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="User Id" name="username" required="required">
+            <input type="password" class="form-control" placeholder="Password" name="password" required="required">
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block" name="submit" id="ab1">Login in</button>
+        </div>
+        <div class="clearfix">
+            <label class="pull-left checkbox-inline"><input type="checkbox"> Remember me</label>
+            <a href="#" class="pull-right">Forgot Password?</a>
+        </div>        
     </form>
-
-
-</div>
+    
 </div>
 
    
 </div>
+</div>
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" ></script>
+
+
 </body>
 </html>
