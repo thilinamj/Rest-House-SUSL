@@ -1,10 +1,44 @@
-﻿<!DOCTYPE html>
+<?php
+session_start() ?>
+
+<?php require_once('connection.php')  ;?>
+<?php
+if (!isset($_SESSION['userid'])){
+  header('location:login.php');
+}
+
+?>
+
+<?php
+
+$query="select * from agri ORDER BY id";
+$result=mysqli_query($connection,$query);
+
+
+
+?>
+
+
+
+
+<?php
+if (isset($_GET['del'])) {
+  $id = $_GET['del'];
+  mysqli_query($connection, "DELETE FROM agri WHERE id=$id");
+
+  header('location: agridashboard.php');
+}
+ ;?>
+
+
+
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
       <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title></title>
-	<!-- BOOTSTRAP STYLES-->
+  <!-- BOOTSTRAP STYLES-->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
      <!-- FONTAWESOME STYLES-->
     <link href="assets/css/font-awesome.css" rel="stylesheet" />
@@ -27,12 +61,16 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="#">
-                        <img src="assets/img/logo.png" />
-                    </a>
+                        <img src="images/logo.png" width="50" height="50">
+                      </a>
+                      <div class="name">Sabaragamuwa University of Sri Lnaka</div>
+
                 </div>
+
+
               
                  <span class="logout-spn" >
-                  <a href="#" style="color:#fff;">LOGOUT</a>  
+                  <a href="logout.php" style="color:#fff;">LOGOUT</a>  
 
                 </span>
             </div>
@@ -44,21 +82,19 @@
                  
 
  <li class="active-link">
-                        <a href="admin_home.php" ><i class="fa fa-desktop "></i>Dashboard <span class="badge">Included</span></a>
+                        <a href="dashboard.php" ><i class="fa fa-desktop "></i>Faculty Of Applied Sciencess<span class="badge">Details</span></a>
                     </li>
                    
 
                     <li>
-                        <a href="add_user.php"><i class="fa fa-table "></i>Add User  <span class="badge">Add User</span></a>
+                        <a href="agridashboard.php"><i class="fa fa-table "></i>Faculty of Agri Scienes<span class="badge">Details</span></a>
                     </li>
                     <li>
-                        <a href="user_details.php"><i class="fa fa-edit "></i>User Details  <span class="badge">User Details</span></a>
+                        <a href="geodashboard.php"><i class="fa fa-edit "></i>Faculty Of Geomatics<span class="badge">Details</span></a>
                     </li>
 
 
-                    <li>
-                        <a href="#"><i class="fa fa-qrcode "></i>View Customer</a>
-                    </li>
+                    
 
         </nav>
         <!-- /. NAV SIDE  -->
@@ -66,8 +102,49 @@
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                     <h2>BLANK PAGE </h2>   
-                    </div>
+                     <h2>Details</h2> 
+
+
+
+
+    <table class="table table-bordered">
+     <thead>
+      <tr>
+       <th>ID</th>
+       <th> Name</th>
+       <th> email</th>
+       <th>phone</th>
+       <th>Package</th>
+        <th>Arrival Date</th>
+         <th>Depature Date</th>
+         <th>Delete</th>
+         
+
+      </tr>
+     </thead>
+     <tbody>
+     <?php while ($row = mysqli_fetch_array($result)) { ?>
+    <tr>
+      <td><?php echo $row['id']; ?></td>
+      <td><?php echo $row['name']; ?></td>
+        <td><?php echo $row['email']; ?></td>
+         <td><?php echo $row['phone']; ?></td>
+          <td><?php echo $row['package']; ?></td>
+
+          <td><?php echo $row['adate']; ?></td>
+          <td><?php echo $row['ddate']; ?></td>
+      
+
+      <td>
+        <a href="agridashboard.php?del=<?php echo $row['id']; ?>" class="del_btn btn-danger">Delete</a>
+      </td>
+
+    </tr>
+
+  <?php } ?>
+</table>
+
+                   </div>
                 </div>              
                  <!-- /. ROW  -->
                   <hr />
