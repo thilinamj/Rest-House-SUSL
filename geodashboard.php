@@ -11,12 +11,23 @@ if (!isset($_SESSION['userid'])){
 
 <?php
 
-$query="select * from applied ORDER BY id";
+$query="select * from geomatics ORDER BY id";
 $result=mysqli_query($connection,$query);
 
 
 
 ?>
+
+<?php
+if (isset($_GET['del'])) {
+  $id = $_GET['del'];
+  mysqli_query($connection, "DELETE FROM geomatics WHERE id=$id");
+
+  header('location: geodashboard.php');
+}
+ ;?>
+
+
 
 
 
@@ -117,13 +128,14 @@ $result=mysqli_query($connection,$query);
       <td><?php echo $row['name']; ?></td>
         <td><?php echo $row['email']; ?></td>
          <td><?php echo $row['phone']; ?></td>
-          <td><?php echo $row['Package']; ?></td>
+          <td><?php echo $row['package']; ?></td>
+
           <td><?php echo $row['adate']; ?></td>
           <td><?php echo $row['ddate']; ?></td>
       
 
       <td>
-        <a href="delete.php?del=<?php echo $row['id']; ?>" class="del_btn btn-danger">Delete</a>
+        <a href="geodashboard.php?del=<?php echo $row['id']; ?>" class="del_btn btn-danger">Delete</a>
       </td>
 
     </tr>
