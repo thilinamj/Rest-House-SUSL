@@ -7,3 +7,4 @@ git init
 git add
 git commi -m "abc "
 git push origin master
+*
